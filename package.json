@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/s-cryptor/ropsten-web3/issues"
   },
-  "homepage": "https://github.com/s-cryptor/ropsten-web3#readme"
+  "homepage": "https://github.com/s-cryptor/ropsten-web3#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.3"
+  }
 }
