@@ -18,5 +18,8 @@
   "homepage": "https://github.com/s-cryptor/ropsten-web3#readme",
   "devDependencies": {
     "hardhat": "^2.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
   }
 }
