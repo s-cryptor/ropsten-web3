@@ -1,0 +1,19 @@
+{
+  "name": "ropsten-web3",
+  "version": "1.0.0",
+  "description": "small web3 app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-cryptor/ropsten-web3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-cryptor/ropsten-web3/issues"
+  },
+  "homepage": "https://github.com/s-cryptor/ropsten-web3#readme"
+}
