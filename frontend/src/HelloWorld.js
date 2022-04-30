@@ -9,7 +9,6 @@ import {
 } from './util/interact.js'
 
 const HelloWorld = () => {
-  //state variables
   const [walletAddress, setWallet] = useState('')
   const [status, setStatus] = useState('')
   const [message, setMessage] = useState('No connection to the network.') //default message
@@ -20,6 +19,12 @@ const HelloWorld = () => {
     const message = await loadCurrentMessage()
     setMessage(message)
     addSmartContractListener()
+
+    const { address, status } = await getCurrentWalletConnected()
+    setWallet(address)
+    setStatus(status)
+
+    addWalletListener()
   }, [])
 
   function addSmartContractListener() {
@@ -35,11 +40,24 @@ const HelloWorld = () => {
   }
 
   function addWalletListener() {
-    //TODO: implement
+    if (window.ethereum) {
+      const addressArray = window.ethereum.on('accountsChanged')
+      if (addressArray.length > 0) {
+        setWallet(addressArray[0])
+      } else {
+        setWallet('')
+      }
+    } else {
+      setStatus(
+        `${' '} 🦊${' '} You must install Metamask, a virtual Ethereum wallet, in your browser.`
+      )
+    }
   }
 
   const connectWalletPressed = async () => {
-    //TODO: implement
+    const walletResponse = await connectWallet()
+    setStatus(walletResponse.status)
+    setWallet(walletResponse.address)
   }
 
   const onUpdatePressed = async () => {
