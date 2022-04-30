@@ -41,12 +41,13 @@ const HelloWorld = () => {
 
   function addWalletListener() {
     if (window.ethereum) {
-      const addressArray = window.ethereum.on('accountsChanged')
-      if (addressArray.length > 0) {
-        setWallet(addressArray[0])
-      } else {
-        setWallet('')
-      }
+      window.ethereum.on('accountsChanged', (accounts) => {
+        if (accounts.length > 0) {
+          setWallet(accounts[0])
+        } else {
+          setWallet('')
+        }
+      })
     } else {
       setStatus(
         `${' '} 🦊${' '} You must install Metamask, a virtual Ethereum wallet, in your browser.`
