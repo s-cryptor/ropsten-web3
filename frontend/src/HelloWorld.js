@@ -15,8 +15,11 @@ const HelloWorld = () => {
   const [message, setMessage] = useState('No connection to the network.') //default message
   const [newMessage, setNewMessage] = useState('')
 
-  //called only once
-  useEffect(async () => {}, [])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(async () => {
+    const message = await loadCurrentMessage()
+    setMessage(message)
+  }, [])
 
   function addSmartContractListener() {
     //TODO: implement
