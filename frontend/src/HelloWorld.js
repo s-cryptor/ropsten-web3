@@ -62,10 +62,10 @@ const HelloWorld = () => {
   }
 
   const onUpdatePressed = async () => {
-    //TODO: implement
+    const { status } = await updateMessage(walletAddress, newMessage)
+    setStatus(status)
   }
 
-  //the UI of our component
   return (
     <div id="container">
       <button id="walletButton" onClick={connectWalletPressed}>
